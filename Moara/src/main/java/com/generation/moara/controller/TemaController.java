@@ -23,7 +23,7 @@ import com.generation.moara.repository.TemaRepository;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/categorias")
+@RequestMapping("/temas")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class TemaController {
 
@@ -41,9 +41,9 @@ public class TemaController {
 				.orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
 	}
 
-	@GetMapping("/descricao/{descricao}")
-	public ResponseEntity<List<Tema>> getByDescricao(@PathVariable String descricao) {
-		return ResponseEntity.ok(temaRepository.findAllByDescricaoContainingIgnoreCase(descricao));
+	@GetMapping("/nome/{nome}")
+	public ResponseEntity<List<Tema>> getByNome(@PathVariable String nome) {
+		return ResponseEntity.ok(temaRepository.findAllByNomeContainingIgnoreCase(nome));
 	}
 
 	@PostMapping

@@ -8,6 +8,5 @@ import com.generation.moara.model.Tema;
 
 public interface TemaRepository extends JpaRepository<Tema, Long>{
 
-	public List<Tema> findAllByDescricaoContainingIgnoreCase(@Param("Descricao") String descricao);
-	
+	public List<Tema> findAllByNomeContainingIgnoreCase(@Param("nome") String nome);
 }

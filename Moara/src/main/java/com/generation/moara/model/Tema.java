@@ -26,11 +26,11 @@ public class Tema {
 
 	    @NotBlank(message = "O Atributo descrição é obrigatório")
 	    @Size(min = 10, max = 1000, message = "O atributo descrição deve conter no mínimo 10 e no maxímo 1000 caracteres")
-	    private String Descricao;
+	    private String descricao;
 
 	    @NotBlank(message = "O Atributo nome é obrigatório")
 	    @Size(min = 5, max = 100, message = "O atributo nome deve conter no mínimo 5 e no maxímo 100 caracteres")
-	    private String Nome;
+	    private String nome;
 	    
 	    @UpdateTimestamp
 	    private LocalDateTime data;
@@ -44,19 +44,19 @@ public class Tema {
 		}
 
 		public String getDescricao() {
-			return Descricao;
+			return descricao;
 		}
 
 		public void setDescricao(String descricao) {
-			Descricao = descricao;
+			this.descricao = descricao;
 		}
 
 		public String getNome() {
-			return Nome;
+			return nome;
 		}
 
 		public void setNome(String nome) {
-			Nome = nome;
+			this.nome = nome;
 		}
 	    
 }
