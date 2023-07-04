@@ -9,6 +9,6 @@ import com.generation.moara.model.Postagem;
 
 public interface PostagemRepository extends JpaRepository<Postagem, Long> {
 	
-	public List<Postagem> findAllByTextoContainingIgnoreCase(@Param ("texto")String texto);
+	public List<Postagem> findAllByTituloContainingIgnoreCase(@Param ("titulo")String titulo);
 
 }
