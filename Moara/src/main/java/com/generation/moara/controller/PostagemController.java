@@ -21,6 +21,7 @@ import org.springframework.web.server.ResponseStatusException;
 import com.generation.moara.model.Postagem;
 import com.generation.moara.repository.PostagemRepository;
 import com.generation.moara.repository.TemaRepository;
+import com.generation.moara.service.PostagemService;
 
 import jakarta.validation.Valid;
 
@@ -28,6 +29,9 @@ import jakarta.validation.Valid;
 @RequestMapping("/postagens")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class PostagemController {
+	
+	@Autowired
+	private PostagemService postagemService;
 	
 	@Autowired
 	private PostagemRepository postagemRepository;
@@ -85,6 +89,15 @@ public class PostagemController {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND);
 		
 		postagemRepository.deleteById(id);
+	}
+	
+	@PutMapping("/curtir/{id}")
+	public ResponseEntity<Postagem> curtirPostagemId(@PathVariable Long id){
+		
+		return postagemService.curtir(id)
+			.map(resposta-> ResponseEntity.ok(resposta))
+			.orElse(ResponseEntity.badRequest().build());
+	
 	}
 
 }
